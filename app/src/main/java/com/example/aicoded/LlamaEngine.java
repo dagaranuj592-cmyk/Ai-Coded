@@ -6,9 +6,16 @@ public class LlamaEngine {
         System.loadLibrary("aicoded");
     }
 
-    public native String nativeTest();
+    public native boolean loadModel(String modelPath);
 
-    public String testEngine() {
-        return nativeTest();
+    public native String generate(
+            String prompt,
+            int maxTokens
+    );
+
+    public native void unloadModel();
+
+    public boolean isReady() {
+        return true;
     }
 }
